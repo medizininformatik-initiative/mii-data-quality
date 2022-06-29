@@ -1,0 +1,117 @@
+for: https://gitlab.com/libreumg/dataquier
+
+load ship
+```{r}
+
+#getwd()
+ship <- readRDS(file = "gitlab-dataquier/inst/extdata/ship.RDS")
+ship_meta <- readRDS(file = "gitlab-dataquier/inst/extdata/ship_meta.RDS")
+
+```
+
+export to csv
+```{r}
+
+# ship 
+write.table(ship, 
+            file = "ship.csv", 
+            sep = ",", 
+            quote = FALSE, 
+            col.names = TRUE, 
+            row.names = FALSE, 
+            fileEncoding = "UTF-8")
+
+# ship meta
+write.table(ship_meta, 
+            file = "ship_meta.csv", 
+            sep = ",", 
+            quote = FALSE, 
+            col.names = TRUE, 
+            row.names = FALSE, 
+            fileEncoding = "UTF-8")
+
+# study_data
+write.table(study_data, 
+            file = "study_data.csv", 
+            sep = ",", 
+            quote = FALSE, 
+            col.names = TRUE, 
+            row.names = FALSE, 
+            fileEncoding = "UTF-8")
+
+# study_data meta
+write.table(meta_data, 
+            file = "study_data_meta.csv", 
+            sep = ",", 
+            quote = FALSE, 
+            col.names = TRUE, 
+            row.names = FALSE, 
+            fileEncoding = "UTF-8")
+
+```
+
+get the dataquieR R package
+
+```{r}
+install.packages("backports")
+
+library(backports)
+
+devtools::install_gitlab("libreumg/dataquier")
+# 
+# if (!requireNamespace("dataquieR")) {
+#   if (!requireNamespace("devtools")) {
+#     install.packages("devtools")
+#   }
+#   devtools::install_gitlab("libreumg/dataquier")
+# }  
+```
+
+google covid data
+```{r}
+library(data.table)
+library(dplyr)
+
+#getwd()
+globalhealth <- fread(file = "../public covid data/latestdata/globaldothealth_2021-03-10.csv")
+
+#global stats
+#number of records
+dim(globalhealth)[1]
+#number of veriables
+dim(globalhealth)[2]
+#participating nations
+table(globalhealth$location.country)
+#top perticipating natiosn by percentage
+topnations <- as.data.table(table(globalhealth$location.country))
+topnations <- topnations[order(topnations$N, decreasing = TRUE)]
+topnations$percentage <- round(((topnations$N / dim(globalhealth)[1]) * 100), digits = 4)
+#number of participating nations
+length(unique(globalhealth$location.country))
+#summary statistics
+sum.global <- as.data.table(summary(globalhealth))
+
+#ger german records
+globalhealth.german <- globalhealth[globalhealth$location.country == "Germany"]
+#number of german records
+dim(globalhealth.german)[1]
+#not blank varaible percentage
+isthere <- table(globalhealth.german)
+table(globalhealth.german)
+#german summary statistics
+sum.german <- as.data.table(summary(globalhealth.german))
+#number of variables with complete records
+sum(complete.cases(t(globalhealth.german)))
+#number of records per varbiable
+lapply(globalhealth.german, function(x) sum(is.na(x)))
+
+#write german data
+write.table(globalhealth.german, 
+            file = "../public covid data/latestdata/globaldothealthgerman_2021-03-10.csv", 
+            sep = ",", 
+            quote = FALSE, 
+            col.names = TRUE, 
+            row.names = FALSE, 
+            fileEncoding = "UTF-8")
+
+```

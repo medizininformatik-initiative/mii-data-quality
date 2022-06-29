@@ -1,0 +1,303 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "DatasetIdentifier": "http://vocab.fairdatacollective.org/gdmt/hasDatasetIdentifierInfo",
+    "Date": "http://vocab.fairdatacollective.org/gdmt/hasDateInfo",
+    "DataSource": "http://vocab.fairdatacollective.org/gdmt/hasDataSourceInfo",
+    "Version": "http://vocab.fairdatacollective.org/gdmt/hasVersionInfo",
+    "Creator": "http://vocab.fairdatacollective.org/gdmt/hasCreatorInfo",
+    "Title": "http://vocab.fairdatacollective.org/gdmt/hasTitleInfo",
+    "Description": "http://vocab.fairdatacollective.org/gdmt/hasDescriptionInfo",
+    "Number of Records": "https://schema.metadatacenter.org/properties/9cca5407-f722-4930-a3c5-923ac2e5218e",
+    "Age": "https://schema.metadatacenter.org/properties/31fef6d7-6637-409c-ab93-cdfd3d2c5214",
+    "Gender": "https://schema.metadatacenter.org/properties/413c4489-e3ee-4a97-9d7d-03bee25a633f",
+    "Smoking status": "https://schema.metadatacenter.org/properties/b380e530-eca0-4d84-b99a-990dca397283",
+    "Eligibility criteria1": "https://schema.metadatacenter.org/properties/8852fd93-e032-4eb2-8cc6-c830dc0e3c23",
+    "Institutionalized": "https://schema.metadatacenter.org/properties/ea45eee4-95ad-4c26-8676-399732504904"
+  },
+  "DatasetIdentifier": {
+    "@context": {
+      "datasetIdentifier": "http://purl.org/dc/terms/identifier",
+      "datasetIdentifierType": "http://schema.org/propertyID"
+    },
+    "datasetIdentifier": {
+      "@value": null
+    },
+    "datasetIdentifierType": {},
+    "@id": "https://repo.metadatacenter.org/template-element-instances/582aa4c8-a2a8-4a7a-91b3-54e2abf1cdaf"
+  },
+  "Date": [
+    {
+      "@context": {
+        "datasetDateType": "http://vocab.fairdatacollective.org/gdmt/hasDatasetDateType",
+        "datasetDate": "http://vocab.fairdatacollective.org/gdmt/hasDatasetDate"
+      },
+      "datasetDateType": {},
+      "datasetDate": {
+        "@value": null,
+        "@type": "xsd:date"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/040ffef0-e27a-47dd-883a-d0c0ee0c1893"
+    }
+  ],
+  "DataSource": [
+    {
+      "@context": {
+        "dataSource": "http://vocab.fairdatacollective.org/gdmt/hasDataSource",
+        "dataSourceIRI": "http://vocab.fairdatacollective.org/gdmt/hasDataSourceIRI",
+        "dataSourceScheme": "http://vocab.fairdatacollective.org/gdmt/hasDataSourceScheme",
+        "dataSourceSchemeIRI": "http://vocab.fairdatacollective.org/gdmt/hasDataSourceSchemeIRI"
+      },
+      "dataSource": {
+        "@value": null
+      },
+      "dataSourceIRI": {
+        "@value": null
+      },
+      "dataSourceScheme": {
+        "@value": null
+      },
+      "dataSourceSchemeIRI": {
+        "@value": null
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/4193663c-7906-4530-b51d-46951288041b"
+    }
+  ],
+  "Version": {
+    "@context": {
+      "version": "http://schema.org/version"
+    },
+    "version": {
+      "@value": null
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/59239ad7-104e-4c63-8fb5-eb9117575a0e"
+  },
+  "Creator": [
+    {
+      "@context": {
+        "creatorEmail": "http://xmlns.com/foaf/0.1/mbox",
+        "creatorRole": "http://vocab.fairdatacollective.org/gdmt/hasCreatorRole",
+        "creatorType": "http://vocab.fairdatacollective.org/gdmt/hasCreatorType",
+        "CreatorName": "http://vocab.fairdatacollective.org/gdmt/hasCreatorNameInfo",
+        "CreatorAffiliation": "http://vocab.fairdatacollective.org/gdmt/hasCreatorAffiliationInfo",
+        "CreatorIdentifier": "http://vocab.fairdatacollective.org/gdmt/hasCreatorIdentifierInfo"
+      },
+      "creatorEmail": [
+        {
+          "@value": null
+        }
+      ],
+      "creatorRole": [
+        {}
+      ],
+      "creatorType": {},
+      "CreatorName": {
+        "@context": {
+          "creatorName": "http://purl.org/dc/terms/creator",
+          "creatorGivenName": "http://xmlns.com/foaf/0.1/givenName",
+          "creatorFamilyName": "http://xmlns.com/foaf/0.1/familyName"
+        },
+        "creatorName": {
+          "@value": null
+        },
+        "creatorGivenName": {
+          "@value": null
+        },
+        "creatorFamilyName": {
+          "@value": null
+        },
+        "@id": "https://repo.metadatacenter.org/template-element-instances/25aab422-ea7a-44d1-8d93-a330966335fd"
+      },
+      "CreatorAffiliation": [
+        {
+          "@context": {
+            "creatorAffiliation": "http://vocab.fairdatacollective.org/gdmt/hasCreatorAffiliation",
+            "creatorAffiliationIdentifier": "http://vocab.fairdatacollective.org/gdmt/hasCreatorAffiliationIdentifier",
+            "creatorAffiliationIdentifierScheme": "http://vocab.fairdatacollective.org/gdmt/hasCreatorAffiliationIdentifierScheme"
+          },
+          "creatorAffiliation": {
+            "@value": null
+          },
+          "creatorAffiliationIdentifier": {
+            "@value": null
+          },
+          "creatorAffiliationIdentifierScheme": {},
+          "@id": "https://repo.metadatacenter.org/template-element-instances/8eb4736b-9a63-4afe-ab57-97fd4fea23b1"
+        }
+      ],
+      "CreatorIdentifier": {
+        "@context": {
+          "creatorIdentifier": "http://vocab.fairdatacollective.org/gdmt/hasCreatorIdentifier",
+          "creatorIdentifierScheme": "http://vocab.fairdatacollective.org/gdmt/hasCreatorIdentifierScheme"
+        },
+        "creatorIdentifier": {
+          "@value": null
+        },
+        "creatorIdentifierScheme": {},
+        "@id": "https://repo.metadatacenter.org/template-element-instances/721ae0ed-94b9-4e7c-a4e4-85e01860a0d6"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/ea29254b-e1f0-47fc-be5d-71a5ac5d836c"
+    }
+  ],
+  "Title": [
+    {
+      "@context": {
+        "title": "http://purl.org/dc/elements/1.1/title",
+        "titleLanguage": "http://purl.org/dc/terms/language"
+      },
+      "title": {
+        "@value": null
+      },
+      "titleLanguage": {},
+      "@id": "https://repo.metadatacenter.org/template-element-instances/0bbe144f-7050-48da-8e00-ce8a03290078"
+    }
+  ],
+  "Description": [
+    {
+      "@context": {
+        "description": "http://purl.org/dc/elements/1.1/description",
+        "descriptionLanguage": "http://purl.org/dc/terms/language"
+      },
+      "description": {
+        "@value": null
+      },
+      "descriptionLanguage": {},
+      "@id": "https://repo.metadatacenter.org/template-element-instances/b71c0951-158b-4aeb-abad-9088652feed8"
+    }
+  ],
+  "Number of Records": {
+    "@context": {
+      "Number of Records": "https://schema.metadatacenter.org/properties/9c08213c-ac2e-44a0-8b02-5847b859f894"
+    },
+    "Number of Records": {
+      "@value": "5812",
+      "@type": "xsd:int"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/82d493aa-f820-46dc-94a9-2fcd098a409b"
+  },
+  "Age": {
+    "@context": {
+      "Min": "https://schema.metadatacenter.org/properties/75357744-b3d7-4f37-855e-0fb611f29b4e",
+      "Max": "https://schema.metadatacenter.org/properties/06535483-d508-45ec-8d36-e66dfda8e220",
+      "Null": "https://schema.metadatacenter.org/properties/462c9652-5ccc-4d00-8808-4b0a488e05c2"
+    },
+    "Min": {
+      "@value": "65",
+      "@type": "xsd:decimal"
+    },
+    "Max": {
+      "@value": "104",
+      "@type": "xsd:decimal"
+    },
+    "Null": {
+      "@value": "0",
+      "@type": "xsd:decimal"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/a531a3c6-db0f-4323-b8bf-f188afd1a8f6"
+  },
+  "Gender": {
+    "@context": {
+      "female": "https://schema.metadatacenter.org/properties/c45c8198-93bc-4f5e-8ab0-45fa9c7b9880",
+      "male": "https://schema.metadatacenter.org/properties/20227714-c690-4745-a15b-70d01c959949"
+    },
+    "@type": "http://data.bioontology.org/ontologies/SNOMEDCT/classes/http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FSNOMEDCT%2F263495000",
+    "female": {
+      "@value": "2868",
+      "@type": "xsd:decimal"
+    },
+    "male": {
+      "@value": "2944",
+      "@type": "xsd:decimal"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/bbffe46b-d58a-457a-b960-d19b978dc201"
+  },
+  "Smoking status": {
+    "@context": {
+      "False": "https://schema.metadatacenter.org/properties/a9532b24-203e-4818-86e7-6c246ac85aec",
+      "True": "https://schema.metadatacenter.org/properties/fef9a081-cfa9-4d43-a3f8-bd255aa07304"
+    },
+    "@type": "http://data.bioontology.org/ontologies/LOINC/classes/http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FLNC%2FLP114183-9",
+    "False": {
+      "@value": "5788",
+      "@type": "xsd:decimal"
+    },
+    "True": {
+      "@value": "24",
+      "@type": "xsd:decimal"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/c6e44a5e-ffec-46ea-b207-ede72486cfee"
+  },
+  "Eligibility criteria1": [
+    {
+      "@context": {
+        "FHIR QUERY": "https://schema.metadatacenter.org/properties/ea71bc59-4ca3-4bc4-8101-3897315ac549",
+        "FHIR PATH": "https://schema.metadatacenter.org/properties/225fdf46-e7dc-430f-ac15-057b3b7f1e38"
+      },
+      "FHIR QUERY": {
+        "@value": "/Patient?birthdate=le1955"
+      },
+      "FHIR PATH": {
+        "@value": null
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/51f8bce8-599e-4c7c-a837-91833c360c03"
+    }
+  ],
+  "Institutionalized": {
+    "@context": {
+      "False": "https://schema.metadatacenter.org/properties/eeec854a-63b9-4aab-b17b-f5701b67ca09",
+      "True": "https://schema.metadatacenter.org/properties/75c423e1-0cf1-4609-afbb-ff3534ca9493"
+    },
+    "False": {
+      "@value": "5530",
+      "@type": "xsd:decimal"
+    },
+    "True": {
+      "@value": "282",
+      "@type": "xsd:decimal"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/9514a068-1871-489a-82e2-0efd0f844f32"
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/c069f0ba-49c7-44c9-9b23-3cedfeb4097e",
+  "schema:name": "FAIR4Health Use Case 1 Dataset Template (based on GDMT) exemplary metadata",
+  "schema:description": "",
+  "pav:createdOn": "2021-11-19T09:59:11-08:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2021-11-19T09:59:47-08:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/135c2c89-61d4-4d43-a9f2-25ad653671c4"
+}

@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "Diagnosis B": "https://schema.metadatacenter.org/properties/19567255-a3d8-43f8-bbf6-9fe096f0ea5d",
+    "Measurement C": "https://schema.metadatacenter.org/properties/8b01b06f-5966-4cc7-a7ab-eb0af73935bf",
+    "Timeframe": "https://schema.metadatacenter.org/properties/990aee9c-0adf-4a36-aefb-505df257fdb6",
+    "Diagnosis A": "https://schema.metadatacenter.org/properties/46fc6136-ce20-44cc-82ee-dfad51820112"
+  },
+  "Diagnosis B": [
+    {
+      "@id": "http://purl.bioontology.org/ontology/ICD10/I50",
+      "rdfs:label": "Heart failure"
+    }
+  ],
+  "Measurement C": [
+    {
+      "@id": "http://purl.bioontology.org/ontology/LNC/LP40259-1",
+      "rdfs:label": "Blood pressure"
+    },
+    {
+      "@id": "http://purl.bioontology.org/ontology/LNC/MTHU003114",
+      "rdfs:label": "Heart rate"
+    }
+  ],
+  "Timeframe": {
+    "@context": {
+      "Timeframe": "https://schema.metadatacenter.org/properties/035c12f6-8eb1-4cdf-8ea5-ba077ca1fcbb",
+      "Unit": "https://schema.metadatacenter.org/properties/5866d1ec-8971-4fb6-8b73-37603ce0a6c2"
+    },
+    "Timeframe": {
+      "@value": "3"
+    },
+    "Unit": {
+      "@id": "http://purl.obolibrary.org/obo/UO_0000033",
+      "rdfs:label": "day"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/40fb8713-cb0e-4c4c-873f-96452772b984"
+  },
+  "Diagnosis A": {
+    "@id": "http://purl.bioontology.org/ontology/ICD10/I50.0",
+    "rdfs:label": "Congestive heart failure"
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/25d369c1-dd84-4786-a14f-86b290b3157f",
+  "schema:name": "A requires B - ICD10 + LOINC metadata",
+  "schema:description": "",
+  "pav:createdOn": "2021-12-09T14:02:02-08:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2021-12-09T14:02:02-08:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/99ab39b2-3a72-46ee-aecf-cfbdb6ebb34d"
+}

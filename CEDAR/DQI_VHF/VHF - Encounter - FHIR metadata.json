@@ -1,0 +1,153 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "Nutzungszweck": "https://schema.metadatacenter.org/properties/df1178bf-452d-495c-b580-6d6c0ac691c8",
+    "Ergebniss Contradiction": "https://schema.metadatacenter.org/properties/431c022a-369d-4aaf-987a-f034ff6ee99d",
+    "Ablauf Ereignisse": "https://schema.metadatacenter.org/properties/1abd5136-174a-40bd-afe2-c55ada838bc2"
+  },
+  "Nutzungszweck": {
+    "@context": {
+      "Autor": "https://schema.metadatacenter.org/properties/29c00c85-6253-493f-ac2a-ff1d7ad7ae93",
+      "Use Case": "https://schema.metadatacenter.org/properties/784b83af-e9b1-4a63-8a80-8899d2c6d3b6"
+    },
+    "Autor": {
+      "@value": "CD"
+    },
+    "Use Case": [
+      {
+        "@id": "https://cedar.metadatacenter.org/instances/edit/https://repo.metadatacenter.org/template-instances/2336d86b-8b4d-492d-91b6-c07e97a5c668?folderId=https:%2F%2Frepo.metadatacenter.org%2Ffolders%2F7a0efe47-5ab9-4b37-8c11-b82f0473ff4c"
+      }
+    ],
+    "@id": "https://repo.metadatacenter.org/template-element-instances/425f111b-136b-414d-b2be-3d24c3c0b1bf"
+  },
+  "Ergebniss Contradiction": [
+    {
+      "@context": {
+        "ID des Contradiction Checks": "https://schema.metadatacenter.org/properties/2e16eb90-15c7-4537-85d6-8d125559055e",
+        "Contradictions in Prozent": "https://schema.metadatacenter.org/properties/02d96252-2328-4fee-b465-4ec5138b182c"
+      },
+      "ID des Contradiction Checks": {
+        "@value": "1001"
+      },
+      "Contradictions in Prozent": {
+        "@value": "46.3",
+        "@type": "xsd:decimal"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/dac7f94c-db5e-47ae-b194-4264831ed135"
+    },
+    {
+      "@context": {
+        "ID des Contradiction Checks": "https://schema.metadatacenter.org/properties/2e16eb90-15c7-4537-85d6-8d125559055e",
+        "Contradictions in Prozent": "https://schema.metadatacenter.org/properties/02d96252-2328-4fee-b465-4ec5138b182c"
+      },
+      "ID des Contradiction Checks": {
+        "@value": "1002"
+      },
+      "Contradictions in Prozent": {
+        "@value": "48.2",
+        "@type": "xsd:decimal"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/8296cd4b-fd95-4e2c-8465-38f04444054a"
+    }
+  ],
+  "Ablauf Ereignisse": {
+    "@context": {
+      "FHIR Profile": "https://www.medizininformatik-initiative.de/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung",
+      "FHIR Profile + Contradiction": "https://www.medizininformatik-initiative.de/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung",
+      "FHIR Profile + Contradiction1": "https://schema.metadatacenter.org/properties/c1fe68a1-ae54-4a5e-8b1c-3a222b833bef"
+    },
+    "FHIR Profile": {
+      "@context": {
+        "FHIR PATH": "https://schema.metadatacenter.org/properties/37856b88-18ab-41a9-815f-9f5c6abefbaa",
+        "Zielvariable": "https://schema.metadatacenter.org/properties/f8072a19-8de1-4a08-9b0e-703b237c2d18"
+      },
+      "FHIR PATH": {
+        "@value": "Encounter.period.start"
+      },
+      "Zielvariable": {
+        "@value": "encounter.start"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/155eaf89-0ef2-4bb4-9f27-df5dbd9e63cb"
+    },
+    "FHIR Profile + Contradiction": [
+      {
+        "@context": {
+          "FHIR PATH": "https://schema.metadatacenter.org/properties/37856b88-18ab-41a9-815f-9f5c6abefbaa",
+          "Zielvariable": "https://schema.metadatacenter.org/properties/f8072a19-8de1-4a08-9b0e-703b237c2d18",
+          "ID des Contradiction Checks": "https://schema.metadatacenter.org/properties/3d6afee1-d25d-4826-85ef-4fba91642e3c"
+        },
+        "FHIR PATH": {
+          "@value": "Observation.effectiveDateTime"
+        },
+        "Zielvariable": {
+          "@value": "NTproBNP.date"
+        },
+        "ID des Contradiction Checks": {
+          "@value": "1002"
+        },
+        "@id": "https://repo.metadatacenter.org/template-element-instances/2e9e1dc1-3cd7-4ce8-84ca-8b7a327a0f60"
+      }
+    ],
+    "FHIR Profile + Contradiction1": {
+      "@context": {
+        "FHIR PATH": "https://schema.metadatacenter.org/properties/37856b88-18ab-41a9-815f-9f5c6abefbaa",
+        "Zielvariable": "https://schema.metadatacenter.org/properties/f8072a19-8de1-4a08-9b0e-703b237c2d18",
+        "ID des Contradiction Checks": "https://schema.metadatacenter.org/properties/3d6afee1-d25d-4826-85ef-4fba91642e3c"
+      },
+      "FHIR PATH": {
+        "@value": "Encounter.period.end"
+      },
+      "Zielvariable": {
+        "@value": "encounter.end"
+      },
+      "ID des Contradiction Checks": {
+        "@value": "1001"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/ffedac4c-9720-47b4-849a-ceef99657bff"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/b335f11f-e0a7-4ca1-9ac9-fc58a7609f0a"
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/d6b205bb-df6b-4ca5-9ba0-2a56f75257d0",
+  "schema:name": "VHF - Encounter - FHIR metadata",
+  "schema:description": "",
+  "pav:createdOn": "2022-05-12T00:33:00-07:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2022-05-12T00:43:28-07:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/1d6c5bf6-3f16-42d7-8267-2ca5f8c8b1f3"
+}

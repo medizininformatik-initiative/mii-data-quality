@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "Patients Age Ã¢ÂÂ¥": "https://schema.metadatacenter.org/properties/b51fa4ae-17ba-4441-8f26-f58cc413145e",
+    "Number of chronic diseases/comorbidities Ã¢ÂÂ¥": "https://schema.metadatacenter.org/properties/80bd3aad-4560-4a82-b845-ad7dce5b9db4",
+    "Institutionalized": "https://schema.metadatacenter.org/properties/157a6433-c9b6-46cb-99d0-91895ee599ae",
+    "Age": "https://schema.metadatacenter.org/properties/0a955dd8-5ee5-4c86-948d-64e63dc77af7",
+    "Gender": "https://schema.metadatacenter.org/properties/223ddae8-2abf-4818-a286-d0ce45f57082",
+    "Smoking status": "https://schema.metadatacenter.org/properties/d6ecf9cc-d1f7-42c2-a886-abcadd79e8f3",
+    "Nationality": "https://schema.metadatacenter.org/properties/497bf448-3ebe-44f1-9117-87a77d28e56a",
+    "Comorbidities variables (at least two)": "https://schema.metadatacenter.org/properties/5d01e098-ae73-456b-818f-92993e70a64a",
+    "Polypharmacy (five or more medications prescribed in the last contact with doctor or researcher)": "https://schema.metadatacenter.org/properties/00ac1e35-6f7e-4fad-8374-97ee2dc1cd59",
+    "Number of prescribed drugs for those who have polypharmacy": "https://schema.metadatacenter.org/properties/8f64220e-3aad-48cc-8ad1-1d7a12e7a6b3",
+    "Mortality at 6 months": "https://schema.metadatacenter.org/properties/3e6269e8-316a-494d-b573-b305a719b6f8",
+    "Cognitive impairments variables": "https://schema.metadatacenter.org/properties/50074fe3-7c2a-41d4-bd38-db955b0eef32"
+  },
+  "Patients Age Ã¢ÂÂ¥": {
+    "@value": "65",
+    "@type": "xsd:decimal"
+  },
+  "Number of chronic diseases/comorbidities Ã¢ÂÂ¥": {
+    "@value": "2",
+    "@type": "xsd:decimal"
+  },
+  "Institutionalized": {
+    "@value": "Yes"
+  },
+  "Age": {
+    "@value": "66",
+    "@type": "xsd:decimal"
+  },
+  "Gender": {
+    "@value": "Male"
+  },
+  "Smoking status": {
+    "@value": "NO"
+  },
+  "Nationality": {
+    "@value": "German"
+  },
+  "Comorbidities variables (at least two)": [
+    {
+      "@value": "Heart Failure"
+    },
+    {
+      "@value": "Chronic Kidney Disease"
+    },
+    {
+      "@value": "Stroke/TIA"
+    },
+    {
+      "@value": "Arthrosis"
+    }
+  ],
+  "Polypharmacy (five or more medications prescribed in the last contact with doctor or researcher)": {
+    "@value": "No"
+  },
+  "Number of prescribed drugs for those who have polypharmacy": {
+    "@value": "null",
+    "@type": "xsd:decimal"
+  },
+  "Mortality at 6 months": {
+    "@value": "Yes"
+  },
+  "Cognitive impairments variables": [
+    {
+      "@value": null
+    }
+  ],
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/1e723c3a-0fc9-44d4-9f51-9f2e73fa3e84",
+  "schema:name": "FAIR4Health Use Case 1 CRF example",
+  "schema:description": "",
+  "pav:createdOn": "2021-09-17T02:11:36-07:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2021-09-22T04:35:18-07:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/c33136f1-ad1b-4980-ad0d-7204b7692930",
+  "@id": "https://repo.metadatacenter.org/template-instances/0e68d521-c90d-4b8a-ac58-4bef9b970826"
+}

@@ -1,0 +1,118 @@
+based on new tutorial https://dataquality.ship-med.uni-greifswald.de/VIN_DQ-report-SHIP-example.html
+using  older DQ-report-example-SHIP.Rmd for loading
+
+### Summary table
+```{r message=FALSE, echo=FALSE, warning=FALSE}
+MyValueLimits_ship$SummaryTable
+```
+
+
+### Summary plot
+```{r }
+# select variables with deviations
+whichdeviate_ship <- as.character(MyValueLimits_ship$SummaryTable$Variables)[MyValueLimits_ship$SummaryTable$GRADING == 1]
+head(MyValueLimits_ship$SummaryPlotList[whichdeviate_ship], 2)
+```
+
+comparing plots from dataquiR
+
+```{r }
+# plots
+dataquiR_plot <- MyValueLimits_ship$SummaryPlotList$AGE_0
+dataquiR_plot
+dataquiR_data <- MyValueLimits_ship$SummaryPlotList$AGE_0$data$AGE_0
+dataquiR_hist <- hist(dataquiR_data)
+
+# data for plots
+print("dataquiR plot data")
+dataquiR_data
+print("dataquiR hist data")
+dataquiR_hist
+```
+
+generate random sample 
+
+```{r }
+
+dataquiR_size <- length(dataquiR_data)
+dataquiR_max <- max(dataquiR_data)
+random_data <- sample(x = 0:dataquiR_max+3, size = dataquiR_size, replace = TRUE)
+
+plot(dataquiR_hist)
+random_hist <- hist(random_data)
+
+# data for plots
+print("dataquiR hist data")
+dataquiR_hist
+print("random sample hist data")
+random_hist
+
+```
+
+KS test
+one sample test
+"What is the probability that this collection of samples could have been drawn from that probability distribution?" <- only this for validation!
+two sample test
+"What is the probability that these two sets of samples were drawn from the same (but unknown) probability distribution?"
+
+The idea behind the KS test is simple: if two samples belong to each other, their empirical cumulative distribution functions (ECDFs) must be quite similar. This suggests that we can evaluate their similarity by measuring the differences between the ECDFs.
+
+To achieve this, the KS test finds the maximum distance between the ECDFs. More importantly, the test requires evaluating whether the distance is large enough to claim that the two samples do not belong to each other.
+https://towardsdatascience.com/how-to-compare-two-distributions-in-practice-8c676904a285
+
+KS test for age
+
+```{r }
+
+# perform a two-sample Kolmogorov-Smirnov test 
+# on data
+print("KS test on data")
+ks.test(random_data,dataquiR_data)
+
+# ecdf
+dataquiR_ecdf<- ecdf(x = dataquiR_data)
+random_ecdf <- ecdf(x = random_data)
+
+# ks with ecdf
+print("KS test with ecdf")
+ks.test(random_data,dataquiR_ecdf)
+
+# plot ecdf
+plot(dataquiR_ecdf, main = "ECDF of dataquiR_data and random_data")
+lines(random_ecdf, col = 2)
+
+# ks verification
+print("KS test with second sample")
+ks.test(sample(x = 0:dataquiR_max+3, size = dataquiR_size, replace = TRUE),random_ecdf)
+
+
+```
+
+required data for validation
+ecdf
+D, p-value limits
+
+
+```{r }
+# save ecdf as .rds
+saveRDS(dataquiR_ecdf, file = "dataquiR_ship_ecdf_age.rds")
+
+ship_contradiction_checks <- read.csv(file = "ship_contradiction_checks.csv", sep ="#")
+```
+
+TODO:
+- what about one sided test? WITH ecdf always onesided
+- D, p-value limits; D high, p low means not from same dist
+
+testing
+
+```{r }
+# read ship meta from csv
+ship_contradiction_checks <- read.csv(file = "ship_contradiction_checks.csv", sep ="#")
+ship_missing_codes <- read.csv(file = "Missing-Codes-SHIP.csv", sep =";")
+
+# read xlx from clipboard
+westorm_datacatalog <- read.table(file = "clipboard", sep = "\t", header=TRUE)
+
+```
+

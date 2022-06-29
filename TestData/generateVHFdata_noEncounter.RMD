@@ -1,0 +1,113 @@
+Generate Testdata for 6. MII Projectathon
+
+```{r}
+# libarys
+library(dataquieR)
+library(tibble)
+library(tidyverse)
+library(dplyr)
+library(data.table)
+library(lubridate)
+library(dataquieR)
+```
+
+Generate Testdate based on .csv shema, adapted shema from Projectathon to Demo F4H DCT and DPT
+
+```{r}
+# switch wd to test data
+setwd("C:/Users/VictoryThroughUnity/Documents/imise/ProjectathonDQ/git/Projectathon6-smith2")
+setwd("C:/Users/VictoryThroughUnity/Documents/imise/ProjectathonDQ/Testing/VHF Test Data")
+
+
+```
+
+like in F4H only
+```{r}
+
+#### properties of test data
+metadata_report$VAR_NAMES
+#### Leipzig
+size <- 2000
+patient.id.offset <- 1000
+gender.labels <- c("male","female","other", "unknown")
+gender.prob <- c(0.475,0.475,0.05,0.0)
+birthdate.min <- 
+birthdate.max <-
+observation.id.offset
+ntprobnp.date.min
+ntprobnp.date.max
+
+#### Cohort ######################
+
+# generate empty df
+cohort <- data.frame(subject=character(),
+                 NTproBNP.date=as.Date(character()), 
+                 NTproBNP.value=double(),
+                 NTproBNP.unit=character(),
+                 gender=character(),
+                 birthdate=as.Date(character()),
+                 stringsAsFactors=FALSE) 
+
+
+
+# patient + encounter + observation as cohort
+# requirt fields in F4H:
+# patient id, identifier.value, gender, birthdate, adress.country
+# encounter id, identifier.value, status, class, typ
+# observation id, identifier.value, status, code, effective[x]
+cohort <- data.frame(subject = as.character(seq(1000,1999)),
+                 gender = sample(c("male","female","other"), prob = c(0.475,0.475,0.05), size = 1000, replace = TRUE),
+                 birthdate = rdate(1000, min = "1960-01-01", max = "1990-12-31", sort = FALSE),
+                 observation.NTproBNP.id = as.character(seq(5000,5999)),
+                 NTproBNP.date = rdate(1000, min = "2019-01-01", max = "2021-12-31",sort = FALSE), 
+                 NTproBNP.value = rnorm(1000, mean = 1000, sd = 300),
+                 NTproBNP.unit = rep("pg/mL",1000),
+                 NTproBNP.status = rep("final",1000),
+                 NTproBNP.code = rep("33762-6",1000),
+                 NTproBNP.codeSystem = rep("http://loinc.org",1000) )
+
+#### Conditions ######################
+
+# generate empty
+# requirt fields in F4H:
+# condition id, identifier.value, code (from http://hl7.org/fhir/sid/icd-10), subject (ref patient)
+conditions <- data.frame(condition.id=character(),
+                 code=character(),
+                 code.system=character(),
+                 subject=character(),
+                 stringsAsFactors=FALSE) 
+
+
+conditions <- data.frame(condition.id = as.character(seq(5000,5999)),
+                              code = sample(c("K35.1","K70.3","G47.2","G43.9","F19.0"), size = 1000, replace = TRUE),
+                              code.system = rep("http://hl7.org/fhir/sid/icd-10",1000),
+                              subject = as.character(seq(1000,1999)) )  
+
+# find all patients with ntpro bnp over 1000 and change condition to VHF (ICD10 I48
+#table(conditions$code)
+selected <- cohort$observation.NTproBNP.id[cohort$NTproBNP.value > 1000]
+conditions[conditions$condition.id %in% selected,]$code <- "I48"
+
+write.csv(cohort,"example\\cohort.csv", row.names = FALSE)
+write.csv(conditions,"example\\conditions.csv", row.names = FALSE)
+
+# split df into x exqual parts
+splitDF <- function(df, x) {
+  nrows <- nrow(df)
+  split_at <- floor(nrows / x)
+  return( split(df, rep(1:split_at, each=split_at, length.out=nrows)) )
+}
+
+# save list of dfs as csv
+saveDF <- function(dfs, name, path) {
+  lapply( names(dfs), function(x){
+                            write.csv(dfs[[x]], paste0(path,"\\",name,"_",x,".csv"),
+                            row.names = FALSE)} ) 
+}
+
+cohort_list <- splitDF(cohort,1)
+saveDF(cohort_list, "cohort", "test_data")
+conditions_list <- splitDF(conditions,1)
+saveDF(conditions_list, "conditions", "test_data")
+
+```

@@ -1,0 +1,253 @@
+Generate Testdata for 6. MII Projectathon
+
+```{r}
+# libarys
+library(dataquieR)
+library(tibble)
+library(tidyverse)
+library(dplyr)
+library(data.table)
+library(lubridate)
+library(dataquieR)
+```
+
+Generate Testdate based on .csv shema, adapted shema from Projectathon to Demo F4H DCT and DPT
+
+
+```{r}
+# switch wd to test data
+setwd("C:/Users/VictoryThroughUnity/Documents/imise/ProjectathonDQ/git/Projectathon6-smith2")
+setwd("C:/Users/VictoryThroughUnity/Documents/imise/ProjectathonDQ/Testing/VHF Test Data")
+
+#### properties of test data
+metadata_report$VAR_NAMES
+# NTproBNP.date"                "NTproBNP.valueQuantity.value" "NTproBNP.code"                "NTproBNP.codeSystem"          "NTproBNP.unit"               
+#  [6] "NTproBNP.unitSystem"          "gender"                       "birthdate"                    "encounter.start"              "encounter.end" 
+
+# functions
+
+# function for random dates
+# source https://stackoverflow.com/questions/21502332/generating-random-dates
+rdate <- function(x,
+                  min = paste0(format(Sys.Date(), '%Y'), '-01-01'),
+                  max = paste0(format(Sys.Date(), '%Y'), '-12-31'),
+                  sort = TRUE) {
+
+  dates <- sample(seq(as.Date(min), as.Date(max), by = "day"), x, replace = TRUE)
+  if (sort == TRUE) {
+    sort(dates)
+  } else {
+    dates
+  }
+}
+
+```
+
+differnet parameters for test sets
+```{r}
+
+
+#### Leipzig ####
+# normal age; 10% higher ntprobnp; age 50+; fail check 1002 end before ntprobnp
+name <- "Leipzig"
+size <- 2500
+
+#### id offsets for F4H FHIR import
+patient.id.offset <- 1000
+encounter.id.offset <- max(size,patient.id.offset)*10
+observation.NTproBNP.id.offset <- 90000
+
+#### NTproBNP.valueQuantity.value # assumes normal distribution
+ntprobnp.valueQuantity.value.mean <- 1000
+ntprobnp.valueQuantity.value.sd <- 220
+
+#### gender
+gender.labels <- c("male","female","other", "unknown")
+gender.prob <- c(0.475,0.475,0.04,0.01)
+
+#### birthdate
+birthdate.min <- "1940-01-01"
+birthdate.max <- "2021-12-31"
+
+#### NTproBNP.date
+ntprobnp.date.min <- "2020-01-01"
+ntprobnp.date.max <- "2020-12-31"
+
+#### encounter.start
+encounter.start.min <- "2019-01-01"
+encounter.start.max <- "2019-12-31"
+
+#### encounter.end
+encounter.end.min <- "2020-12-01"
+encounter.end.max <- "2021-12-31"
+### LE ####
+
+# #### Halle ####
+# # only woman; 50% higher ntprobnp; age max 82; fail check 1001 end before start
+# name <- "Halle"
+# size <- 2500
+# 
+# #### id offsets for F4H FHIR import
+# patient.id.offset <- 1000
+# encounter.id.offset <- max(size,patient.id.offset)*10
+# observation.NTproBNP.id.offset <- 90000
+# 
+# #### NTproBNP.valueQuantity.value # assumes normal distribution
+# ntprobnp.valueQuantity.value.mean <- 1200
+# ntprobnp.valueQuantity.value.sd <- 250
+# 
+# #### gender
+# gender.labels <- c("male","female","other", "unknown")
+# gender.prob <- c(0.0,0.95,0.05,0.00)
+# 
+# #### birthdate
+# birthdate.min <- "1960-01-01"
+# birthdate.max <- "2021-12-31"
+# 
+# #### NTproBNP.date
+# ntprobnp.date.min <- "2020-01-01"
+# ntprobnp.date.max <- "2020-12-31"
+# 
+# #### encounter.start
+# encounter.start.min <- "2019-12-01"
+# encounter.start.max <- "2019-12-31"
+# 
+# #### encounter.end
+# encounter.end.min <- "2019-11-01"
+# encounter.end.max <- "2021-12-31"
+# #### HAL ####
+
+#### JENA ####
+# # all genders; nromal higher ntprobnp; max age range; pass all cekcs; double size
+# name <- "Jena"
+# size <- 5000
+# 
+# #### id offsets for F4H FHIR import
+# patient.id.offset <- 1000
+# encounter.id.offset <- max(size,patient.id.offset)*10
+# observation.NTproBNP.id.offset <- 90000
+# 
+# #### NTproBNP.valueQuantity.value # assumes normal distribution
+# ntprobnp.valueQuantity.value.mean <- 1000
+# ntprobnp.valueQuantity.value.sd <- 200
+# 
+# #### gender
+# gender.labels <- c("male","female","other", "unknown")
+# gender.prob <- c(0.475,0.475,0.04,0.01)
+# 
+# #### birthdate
+# birthdate.min <- "1940-01-01"
+# birthdate.max <- "2021-12-31"
+# 
+# #### NTproBNP.date
+# ntprobnp.date.min <- "2020-01-01"
+# ntprobnp.date.max <- "2020-12-31"
+# 
+# #### encounter.start
+# encounter.start.min <- "2019-01-01"
+# encounter.start.max <- "2019-12-31"
+# 
+# #### encounter.end
+# encounter.end.min <- "2021-01-01"
+# encounter.end.max <- "2021-12-31"
+# #### J ####
+
+
+#### Cohort ######################
+
+# generate empty df
+cohort <- data.frame(subject=character(),
+                 NTproBNP.date=as.Date(character()), 
+                 NTproBNP.valueQuantity.value=double(),
+                 NTproBNP.unit=character(),
+                 NTproBNP.unitSystem=character(),
+                 gender=character(),
+                 birthdate=as.Date(character()),
+                 encounter.id=character(),
+                 encounter.start=as.Date(character()),
+                 encounter.end=as.Date(character()),
+                 encounter.status=character(),
+                 encounter.class=character(),
+                 stringsAsFactors=FALSE) 
+
+
+# patient + encounter + observation as cohort
+# requirt fields in F4H:
+# patient id, identifier.value, gender, birthdate, adress.country
+# encounter id, identifier.value, status, class, typ
+# observation id, identifier.value, status, code, effective[x]
+cohort <- data.frame(subject = as.character(seq(patient.id.offset,patient.id.offset + size - 1)),
+                 gender = sample(gender.labels, prob = gender.prob, size = size, replace = TRUE),
+                 birthdate = rdate(size, min = birthdate.min, max = birthdate.max, sort = FALSE),
+                 observation.NTproBNP.id = as.character(seq(observation.NTproBNP.id.offset,observation.NTproBNP.id.offset + size - 1)),
+                 NTproBNP.date = rdate(size, min = ntprobnp.date.min, max = ntprobnp.date.max,sort = FALSE), 
+                 NTproBNP.valueQuantity.value = rnorm(size, mean = ntprobnp.valueQuantity.value.mean, sd = ntprobnp.valueQuantity.value.sd),
+                 NTproBNP.unit = rep("pg/mL",size),
+                 NTproBNP.unitSystem = rep("http://unitsofmeasure.org",size),
+                 NTproBNP.status = rep("final",size),
+                 NTproBNP.code = rep("33762-6",size),
+                 NTproBNP.codeSystem = rep("http://loinc.org",size),
+                 encounter.id = as.character(seq(encounter.id.offset,encounter.id.offset + size - 1)),
+                 encounter.start = rdate(size, min = encounter.start.min, max = encounter.start.max,sort = FALSE),
+                 encounter.end = rdate(size, min = encounter.end.min, max = encounter.end.max,sort = FALSE),
+                 encounter.status = rep("finished",size),
+                 encounter.class = rep("IMP",size),
+                 encounter.type = rep("planned",size) )
+
+#### Conditions ######################
+
+# generate empty
+# requirt fields in F4H:
+# condition id, identifier.value, code (from http://hl7.org/fhir/sid/icd-10), subject (ref patient)
+conditions <- data.frame(condition.id=character(),
+                 code=character(),
+                 code.system=character(),
+                 subject=character(),
+                 encounter.id=character(),
+                 stringsAsFactors=FALSE) 
+
+
+conditions <- data.frame(condition.id = as.character(seq(90000,90999)),
+                              code = sample(c("K35.1","K70.3","G47.2","G43.9","F19.0"), size = 1000, replace = TRUE),
+                              code.system = rep("http://hl7.org/fhir/sid/icd-10",1000),
+                              subject = as.character(seq(1000,1999)),
+                              encounter.id = as.character(seq(9000,9999)) )  
+
+# export data 
+write.csv(cohort,paste0("test_data\\cohort_",name,".csv"), row.names = FALSE)
+write.csv(conditions,"test_data\\conditions.csv", row.names = FALSE)
+
+# generate DQ report
+write.csv(cohort,"Ergebnisse\\cohort.csv", row.names = FALSE)
+rmarkdown::render("TESTING_dq_report.RMD", output_format = "html_document", output_file = paste0("Ergebnisse/DQ-Report_",name,".html"))
+ 
+# #### F4H ####
+# # add coralation between ntprobnp > 1000 and ICD10 I48 for F4H
+# # find all patients with ntpro bnp over 1000 and change condition to VHF (ICD10 I48
+# #table(conditions$code)
+# selected <- cohort$observation.NTproBNP.id[cohort$NTproBNP.valueQuantity.value > 1000]
+# conditions[conditions$condition.id %in% selected,]$code <- "I48"
+# 
+# 
+# # split into multiple small bundels for F4H
+# # split df into x exqual parts
+# splitDF <- function(df, x) {
+#   nrows <- nrow(df)
+#   split_at <- floor(nrows / x)
+#   return( split(df, rep(1:split_at, each=split_at, length.out=nrows)) )
+# }
+# 
+# # save list of dfs as csv
+# saveDF <- function(dfs, name, path) {
+#   lapply( names(dfs), function(x){
+#                             write.csv(dfs[[x]], paste0(path,"\\",name,"_",x,".csv"),
+#                             row.names = FALSE)} ) 
+# }
+# 
+# bundels.count <- 20
+# cohort_list <- splitDF(cohort,bundels.count)
+# saveDF(cohort_list, "cohort", "test_data")
+# conditions_list <- splitDF(conditions,bundels.count)
+# saveDF(conditions_list, "conditions", "test_data")
+
+```

@@ -1,0 +1,258 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "FHIR": "https://schema.metadatacenter.org/properties/1a5834d1-1f02-426c-808f-37f85bc902fd",
+    "FHIR1": "https://schema.metadatacenter.org/properties/00a0e091-e8c8-4faf-a91a-139c7d57f596",
+    "FHIR2": "https://schema.metadatacenter.org/properties/bcd8393f-fde4-47cc-9b9c-1f241c03c853",
+    "FHIR3": "https://schema.metadatacenter.org/properties/b6d378fe-bc43-4699-ac07-f29eb7b2a83f",
+    "FHIR4": "https://schema.metadatacenter.org/properties/f7422ef2-5b4a-4745-b365-873fd2b26ebf",
+    "FHIR5": "https://schema.metadatacenter.org/properties/fbe007e9-6ca8-4bc2-bf66-22fa2d9e69bc",
+    "FHIR6": "https://schema.metadatacenter.org/properties/bb019363-34e0-4b57-85d9-2b6004740208",
+    "FHIR7": "https://schema.metadatacenter.org/properties/d322970c-0bf8-4490-b0d9-b96e8b6872b7",
+    "FHIR8": "https://schema.metadatacenter.org/properties/047f04f7-9022-4eea-862c-b1324ccaaa7f",
+    "FHIR9": "https://schema.metadatacenter.org/properties/061e0ec2-a886-4d80-8e93-fc8c2471b1ab",
+    "FHIR10": "https://schema.metadatacenter.org/properties/c6a70b3a-99dc-4474-8a46-24a24b904d7c",
+    "FHIR11": "https://schema.metadatacenter.org/properties/b63b26e1-3a54-4633-8a2a-21f9e9673ece",
+    "FHIR12": "https://schema.metadatacenter.org/properties/67df7a51-1602-4f8f-96ee-c1bd9d92845a",
+    "FHIR13": "https://schema.metadatacenter.org/properties/26eb11be-6c9e-4b1a-830a-a229e7488856",
+    "FHIR14": "https://schema.metadatacenter.org/properties/f7f677bf-6be3-4754-b602-535babcc2cdc"
+  },
+  "FHIR": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Patient?birthdate=le1955"
+    },
+    "FHIR PATH": {
+      "@value": null
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/b3845bf0-b897-4839-a9bf-2184e99cc5d4"
+  },
+  "FHIR1": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code:sw=G45,I60,I61,I62,I63,G20,G30,F01,F02,F03,F05,G60,G61,G62,G63,G64,G65,G35,F32,F33,F20,F21,F22,F23,F24,F25,F28,F29,F31,I46,I50,I20,I21,I24,I25,I10,I11,I12,I13,I15,I16,I48,I27,N18,N40,N20,J45,J46,G47,I26,A09,K50,K51,K52,K57,B18,K70,K71,K72,K73,K74,K75,K76,K77,K86,K21,K57,E08,E09,E10,E11,E12,E13,E14,E78,E66,E00,E01,E02,E03,E05,C,B20,B21,B22,B23,B24,O98.7,R75,Z21,D50,D51,D52,D53,D55,D56,D57,D58,D59,D60,D61,D62,D63,D64,I67.7,M31,I77.6,M05,M06,M32,M35,L94,M34,M15,M16,M17,M18,M19,M47,M80,M81,M82,I70,I71,I72,I73,I74,I77,I78,I79"
+    },
+    "FHIR PATH": {
+      "@value": "aggr:groupBy(Condition.subject.reference,count()).where(agg >= 2).bucket"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/fe8680e7-a12f-4c94-81b2-8cf23e111b80"
+  },
+  "FHIR2": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Patient"
+    },
+    "FHIR PATH": {
+      "@value": "value:Patient.birthDate.getPeriod($this, now(), 'years')"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/90611eb0-1852-43fe-a6c2-fa388b1c2664"
+  },
+  "FHIR3": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Patient"
+    },
+    "FHIR PATH": {
+      "@value": "value:Patient.gender"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/ad2f1f10-64cd-4915-a6a8-c34c59b656e5"
+  },
+  "FHIR4": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Observation?code=72166-2&value-concept=373066001"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/a07b75b4-e201-425d-bea8-fc8cf4f3e76d"
+  },
+  "FHIR5": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Observation?code=160734000&value-concept=373066001"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/940441b5-914b-424f-b3d9-71009e1f54fa"
+  },
+  "FHIR6": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Patient"
+    },
+    "FHIR PATH": {
+      "@value": "value:Patient.address.country"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/67772639-c5ea-4cab-b8a5-002ca57ba747"
+  },
+  "FHIR7": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code:sw=I46,I50"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/aa08169c-5d00-4f1d-8862-2db772374f03"
+  },
+  "FHIR8": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code:sw=I20,I21,I24,I25"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/956eba95-b777-4e48-a929-0fcbb5e6af3b"
+  },
+  "FHIR9": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code:sw=I10,I11,I12,I13,I15,I16"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/85ea86d2-0361-4e9a-9125-a7c35a19e686"
+  },
+  "FHIR10": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/MedicationStatement"
+    },
+    "FHIR PATH": {
+      "@value": "aggr:groupBy(MedicationStatement.context.reference,iif(count()>4,1,0))"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/266c9eca-7870-4ad9-9019-cc9b745e95cf"
+  },
+  "FHIR11": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/MedicationStatement"
+    },
+    "FHIR PATH": {
+      "@value": "aggr:groupBy(MedicationStatement.context.reference,count())"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/3a1b1546-bb93-43cc-b7fd-45d34ec58454"
+  },
+  "FHIR12": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Observation?code=419099009&value-concept=373066001"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/103629e5-3e6b-44c8-a1db-b121c11e0f18"
+  },
+  "FHIR13": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code=G30,F00"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/f0b706ac-f226-40d0-975f-f9bf632dd71a"
+  },
+  "FHIR14": {
+    "@context": {
+      "FHIR QUERY": "https://schema.metadatacenter.org/properties/3834ec02-da4c-415d-b7e3-d4b8406c5a44",
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/08fa2854-e15a-4dc2-8cca-d7c85e65ca41"
+    },
+    "FHIR QUERY": {
+      "@value": "/Condition?code=F03"
+    },
+    "FHIR PATH": {
+      "@value": "value:exists"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/0f23d6d6-4dd9-4271-98ae-3b6bb06fb99d"
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/328ff174-ae92-4895-9eae-c00c3a485381",
+  "schema:name": "FAIR4Health Use Case 1 FHIR exemplary metadata",
+  "schema:description": "",
+  "pav:createdOn": "2021-11-16T04:47:29-08:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2021-11-19T09:54:16-08:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/ed528cfa-b7ce-4f39-abf8-5943719a4990"
+}

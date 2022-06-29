@@ -1,0 +1,171 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "Body weight - LOINC": "https://schema.metadatacenter.org/properties/861d0821-ccf5-4eda-86a7-c2ca1714d019",
+    "Author": "https://schema.metadatacenter.org/properties/d849aeeb-2935-4d8c-b6c1-f49e4576d070",
+    "Body height (length) - LOINC": "https://schema.metadatacenter.org/properties/1a0a0a48-623f-44b6-a903-7148bbb82532",
+    "Body circumference - LOINC": "https://schema.metadatacenter.org/properties/b2f5533a-00ba-4a0f-9754-134d96821761"
+  },
+  "Body weight - LOINC": [
+    {
+      "@context": {
+        "Range": "https://schema.metadatacenter.org/properties/8287c7f9-5595-4674-a5a6-dd8894a00b21",
+        "Body weight": "https://schema.metadatacenter.org/properties/6d8f91bd-fdcf-496f-aa40-e6bc89907905"
+      },
+      "Range": {
+        "@context": {
+          "Lower Limit": "https://schema.metadatacenter.org/properties/9d1c0392-b0e5-410c-9118-e5cfc436cc42",
+          "Upper Limit": "https://schema.metadatacenter.org/properties/565eced6-7422-4824-8497-bf0480eb18b9",
+          "Unit": "https://schema.metadatacenter.org/properties/39ea85c1-5943-4093-b8ae-f4a36cbc5cde"
+        },
+        "Lower Limit": {
+          "@value": "20"
+        },
+        "Upper Limit": {
+          "@value": "1000"
+        },
+        "Unit": {
+          "@id": "http://purl.obolibrary.org/obo/UO_0000009",
+          "rdfs:label": "kilogram"
+        },
+        "@id": "https://repo.metadatacenter.org/template-element-instances/5c0b9e22-aea7-461c-90ef-52eb7d42cd3a"
+      },
+      "Body weight": {
+        "@id": "http://purl.bioontology.org/ontology/LNC/3141-9",
+        "rdfs:label": "Body weight:Mass:Pt:^Patient:Qn:Measured"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/c003933d-abd3-48b4-a119-79655c107af8"
+    }
+  ],
+  "Author": {
+    "@value": "Vortrag"
+  },
+  "Body height (length) - LOINC": [
+    {
+      "@context": {
+        "Range": "https://schema.metadatacenter.org/properties/201ce614-8517-44e7-a3b9-c42ff1300cad",
+        "Body height (length)": "https://schema.metadatacenter.org/properties/c265b81c-fd21-46ba-8aa1-9b55eda2f15b"
+      },
+      "Range": {
+        "@context": {
+          "Lower Limit": "https://schema.metadatacenter.org/properties/9d1c0392-b0e5-410c-9118-e5cfc436cc42",
+          "Upper Limit": "https://schema.metadatacenter.org/properties/565eced6-7422-4824-8497-bf0480eb18b9",
+          "Unit": "https://schema.metadatacenter.org/properties/39ea85c1-5943-4093-b8ae-f4a36cbc5cde"
+        },
+        "Lower Limit": {
+          "@value": "50"
+        },
+        "Upper Limit": {
+          "@value": "300"
+        },
+        "Unit": {
+          "@id": "http://purl.obolibrary.org/obo/UO_0000015",
+          "rdfs:label": "centimeter"
+        },
+        "@id": "https://repo.metadatacenter.org/template-element-instances/6bfd5a16-f697-47e2-af64-d5e3a3e762b5"
+      },
+      "Body height (length)": {
+        "@id": "http://purl.bioontology.org/ontology/LNC/3137-7",
+        "rdfs:label": "Body height:Len:Pt:^Patient:Qn:Measured"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/b78a8d87-1f53-4af6-93c7-f459d5bda33c"
+    },
+    {
+      "@context": {
+        "Range": "https://schema.metadatacenter.org/properties/201ce614-8517-44e7-a3b9-c42ff1300cad",
+        "Body height (length)": "https://schema.metadatacenter.org/properties/c265b81c-fd21-46ba-8aa1-9b55eda2f15b"
+      },
+      "Range": {
+        "@context": {
+          "Lower Limit": "https://schema.metadatacenter.org/properties/9d1c0392-b0e5-410c-9118-e5cfc436cc42",
+          "Upper Limit": "https://schema.metadatacenter.org/properties/565eced6-7422-4824-8497-bf0480eb18b9",
+          "Unit": "https://schema.metadatacenter.org/properties/39ea85c1-5943-4093-b8ae-f4a36cbc5cde"
+        },
+        "Lower Limit": {
+          "@value": "100"
+        },
+        "Upper Limit": {
+          "@value": "273"
+        },
+        "Unit": {
+          "@id": "http://purl.obolibrary.org/obo/UO_0000015",
+          "rdfs:label": "centimeter"
+        },
+        "@id": "https://repo.metadatacenter.org/template-element-instances/84b2dccc-da5c-41f9-89ea-6b49d98becde"
+      },
+      "Body height (length)": {
+        "@id": "http://purl.bioontology.org/ontology/LNC/91370-7",
+        "rdfs:label": "Body height^used for drug calculation:Len:Pt:^Patient:Qn"
+      },
+      "@id": "https://repo.metadatacenter.org/template-element-instances/77b407fb-f3a0-4b2d-8f99-46f933953e24"
+    }
+  ],
+  "Body circumference - LOINC": [
+    {
+      "@context": {
+        "Range": "https://schema.metadatacenter.org/properties/c38a3b3b-44ad-4559-9b9c-47bc5dd29d73",
+        "Body circumference": "https://schema.metadatacenter.org/properties/e2da61f3-d4f6-493a-876c-edf900af1a2f"
+      },
+      "Range": {
+        "@context": {
+          "Lower Limit": "https://schema.metadatacenter.org/properties/9d1c0392-b0e5-410c-9118-e5cfc436cc42",
+          "Upper Limit": "https://schema.metadatacenter.org/properties/565eced6-7422-4824-8497-bf0480eb18b9",
+          "Unit": "https://schema.metadatacenter.org/properties/39ea85c1-5943-4093-b8ae-f4a36cbc5cde"
+        },
+        "Lower Limit": {
+          "@value": null
+        },
+        "Upper Limit": {
+          "@value": null
+        },
+        "Unit": {},
+        "@id": "https://repo.metadatacenter.org/template-element-instances/f93bc5e1-2d80-4c52-be36-cd177a601cb8"
+      },
+      "Body circumference": {},
+      "@id": "https://repo.metadatacenter.org/template-element-instances/33e58cb6-5017-4340-a087-0bc8bec79879"
+    }
+  ],
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/768a2da0-a742-4728-87db-ab532ce044d7",
+  "schema:name": "Body measurements - LOINC metadata",
+  "schema:description": "",
+  "pav:createdOn": "2021-12-09T13:24:51-08:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2021-12-09T13:34:29-08:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/ddb21980-15f1-4e58-b841-06a5206560f2"
+}

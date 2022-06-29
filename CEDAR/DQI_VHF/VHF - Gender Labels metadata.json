@@ -1,0 +1,97 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pav": "http://purl.org/pav/",
+    "schema": "http://schema.org/",
+    "oslc": "http://open-services.net/ns/core#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "Nutzungszweck": "https://schema.metadatacenter.org/properties/bb0d4aff-32d2-434b-abf5-26ca47280d8d",
+    "Gender": "https://schema.metadatacenter.org/properties/b2ec53b8-5667-4420-b318-2e5fc13a14ce",
+    "FHIR Profile": "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+  },
+  "Nutzungszweck": {
+    "@context": {
+      "Autor": "https://schema.metadatacenter.org/properties/29c00c85-6253-493f-ac2a-ff1d7ad7ae93",
+      "Use Case": "https://schema.metadatacenter.org/properties/784b83af-e9b1-4a63-8a80-8899d2c6d3b6"
+    },
+    "Autor": {
+      "@value": "CD"
+    },
+    "Use Case": [
+      {
+        "@id": "https://cedar.metadatacenter.org/instances/edit/https:/repo.metadatacenter.org/template-instances/2336d86b-8b4d-492d-91b6-c07e97a5c668?folderId=https:%2F%2Frepo.metadatacenter.org%2Ffolders%2F7a0efe47-5ab9-4b37-8c11-b82f0473ff4c"
+      }
+    ],
+    "@id": "https://repo.metadatacenter.org/template-element-instances/37ce034d-f833-4906-9010-05cb66580f82"
+  },
+  "Gender": [
+    {
+      "@id": "http://purl.bioontology.org/ontology/HL7/C0086582",
+      "rdfs:label": "Male"
+    },
+    {
+      "@id": "http://purl.bioontology.org/ontology/HL7/C0086287",
+      "rdfs:label": "Female"
+    },
+    {
+      "@id": "http://purl.bioontology.org/ontology/HL7/C0205394",
+      "rdfs:label": "Other"
+    },
+    {
+      "@id": "http://purl.bioontology.org/ontology/HL7/C0439673",
+      "rdfs:label": "Unknown"
+    }
+  ],
+  "FHIR Profile": {
+    "@context": {
+      "FHIR PATH": "https://schema.metadatacenter.org/properties/37856b88-18ab-41a9-815f-9f5c6abefbaa",
+      "Zielvariable": "https://schema.metadatacenter.org/properties/f8072a19-8de1-4a08-9b0e-703b237c2d18"
+    },
+    "FHIR PATH": {
+      "@value": "Patient.gender"
+    },
+    "Zielvariable": {
+      "@value": "gender"
+    },
+    "@id": "https://repo.metadatacenter.org/template-element-instances/e2da8218-2cfc-4574-a990-9568e1e5fc15"
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.org/templates/b69b5dce-4940-4830-b21b-6286fb6e135e",
+  "schema:name": "VHF - Gender Labels metadata",
+  "schema:description": "",
+  "pav:createdOn": "2022-05-12T00:36:45-07:00",
+  "pav:createdBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "pav:lastUpdatedOn": "2022-05-12T00:37:27-07:00",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/2da6402b-f208-48b1-8387-5f35ad661484",
+  "@id": "https://repo.metadatacenter.org/template-instances/d58b70c1-9c55-43ae-ab1a-1bca2f28c3e6"
+}
